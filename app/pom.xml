@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cn.bugstack</groupId>
+        <groupId>dev.stackbug</groupId>
         <artifactId>big-market</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -81,11 +81,11 @@
 
         <!-- 工程模块；启动依赖 trigger->domain, infrastructure-->
         <dependency>
-            <groupId>cn.bugstack</groupId>
+            <groupId>dev.stackbug</groupId>
             <artifactId>trigger</artifactId>
         </dependency>
         <dependency>
-            <groupId>cn.bugstack</groupId>
+            <groupId>dev.stackbug</groupId>
             <artifactId>infrastructure</artifactId>
         </dependency>
     </dependencies>
@@ -127,7 +127,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>cn.bugstack.Application</mainClass>
+                    <mainClass>dev.stackbug.config.Application</mainClass>
                     <layout>JAR</layout>
                 </configuration>
             </plugin>
