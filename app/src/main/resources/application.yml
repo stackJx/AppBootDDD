@@ -3,3 +3,8 @@ spring:
     name: big-market-app
   profiles:
     active: dev
+# 日志
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
