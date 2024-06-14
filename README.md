@@ -1,2 +1,2 @@
-# xfg-frame-archetype - DDD 脚手架
+# 基于小傅哥 DDD 脚手架改造的 应用开发脚手架模板
 
