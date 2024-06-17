@@ -9,7 +9,8 @@
 
 | 扩展包                      | 版本      | 用途                        | 官网地址                                         |
 |-----------------------------|-----------|-----------------------------|--------------------------------------------------|
-| mybatis-spring-boot-starter | 2.1.4     | MyBatis 集成                | [MyBatis Spring Boot](http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/) |
+| spring-boot-starter-data-jpa| 2.7.5     | Spring Data JPA 集成        | [Spring Data JPA](https://spring.io/projects/spring-data-jpa) |
+| h2                          | 1.4.200   | 内存数据库                  | [H2 Database](http://www.h2database.com/html/main.html) |
 | mysql-connector-java        | 8.0.22    | MySQL 数据库连接            | [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) |
 | fastjson                    | 2.0.28    | JSON 解析                   | [FastJSON](https://github.com/alibaba/fastjson)   |
 | commons-lang3               | 3.9       | 常用工具类库                | [Apache Commons Lang](https://commons.apache.org/proper/commons-lang/) |
@@ -19,3 +20,4 @@
 | jjwt                        | 0.9.1     | JWT 生成和解析              | [JJWT](https://github.com/jwtk/jjwt)              |
 | java-jwt                    | 4.4.0     | JWT 生成和解析              | [Java JWT](https://github.com/auth0/java-jwt)     |
 | commons-codec               | 1.15      | 编码和解码工具              | [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/) |
+| p6spy                       | 3.9.1     | SQL 性能分析插件            | [P6Spy](https://p6spy.readthedocs.io/en/latest/)  |
