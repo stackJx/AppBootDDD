@@ -21,12 +21,18 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 依赖版本号 -->
+        <h2.version>2.1.214</h2.version>
+        <mysql.version>8.0.22</mysql.version>
+        <p6spy.version>3.9.1</p6spy.version>
+        <dynamic.datasource.version>4.2.0</dynamic.datasource.version>
+        <spring.boot.version>3.2.6</spring.boot.version>
     </properties>
 
     <developers>
         <developer>
             <name>stackJx</name>
-            <email>root@stackbug,dev</email>
+            <email>root@stackbug.dev</email>
             <organization>stackJx</organization>
             <organizationUrl>https://github.com/fuzhengwei</organizationUrl>
         </developer>
@@ -47,31 +53,36 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- H2 Database (for example) -->
+            <!-- H2 Database，用于内存数据库 -->
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>2.1.214</version> <!-- 确保指定了正确的版本号 -->
+                <version>${h2.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
+            <!-- MySQL Connector，用于连接 MySQL 数据库 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.22</version>
+                <version>${mysql.version}</version>
             </dependency>
-            <!-- sql性能分析插件 -->
+
+            <!-- p6spy，用于 SQL 性能分析 -->
             <dependency>
                 <groupId>p6spy</groupId>
                 <artifactId>p6spy</artifactId>
-                <version>3.9.1</version>
+                <version>${p6spy.version}</version>
             </dependency>
+
+            <!-- 动态数据源 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
-                <version>4.2.0</version>
+                <version>${dynamic.datasource.version}</version>
             </dependency>
-            <!-- 工程模块 -->
+
+            <!-- 工程模块依赖 -->
             <dependency>
                 <groupId>dev.stackbug</groupId>
                 <artifactId>domain</artifactId>
