@@ -26,7 +26,7 @@
         <mysql.version>8.0.22</mysql.version>
         <p6spy.version>3.9.1</p6spy.version>
         <dynamic.datasource.version>4.2.0</dynamic.datasource.version>
-        <spring.boot.version>3.2.6</spring.boot.version>
+        <spring-boot.version>3.2.6</spring-boot.version>
     </properties>
 
     <developers>
@@ -45,14 +45,17 @@
         </license>
     </licenses>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.6</version>
-    </parent>
-
     <dependencyManagement>
         <dependencies>
+
+            <!-- SpringBoot的依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- H2 Database，用于内存数据库 -->
             <dependency>
                 <groupId>com.h2database</groupId>
