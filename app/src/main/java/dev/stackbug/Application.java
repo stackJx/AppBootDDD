@@ -1,4 +1,4 @@
-package dev.stackbug.config;
+package dev.stackbug;
 
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.SpringApplication;
