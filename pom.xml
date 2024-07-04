@@ -25,6 +25,7 @@
         <h2.version>2.1.214</h2.version>
         <mysql.version>8.0.22</mysql.version>
         <p6spy.version>3.9.1</p6spy.version>
+        <hutool.version>5.8.27</hutool.version>
         <dynamic.datasource.version>4.2.0</dynamic.datasource.version>
         <spring-boot.version>3.2.6</spring-boot.version>
     </properties>
@@ -70,7 +71,12 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-
+            <!-- hutool 的依赖配置-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
             <!-- p6spy，用于 SQL 性能分析 -->
             <dependency>
                 <groupId>p6spy</groupId>
