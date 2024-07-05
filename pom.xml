@@ -28,6 +28,7 @@
         <hutool.version>5.8.27</hutool.version>
         <dynamic.datasource.version>4.2.0</dynamic.datasource.version>
         <spring-boot.version>3.2.6</spring-boot.version>
+        <lombok.version>1.18.32</lombok.version>
     </properties>
 
     <developers>
@@ -83,7 +84,11 @@
                 <artifactId>p6spy</artifactId>
                 <version>${p6spy.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
             <!-- 动态数据源 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
