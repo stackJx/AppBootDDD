@@ -39,3 +39,9 @@ logging:
   level:
     root: info
   config: classpath:logback-spring.xml
+--- # 分布式锁 lock4j 全局配置
+lock4j:
+  # 获取分布式锁超时时间，默认为 3000 毫秒
+  acquire-timeout: 3000
+  # 分布式锁的超时时间，默认为 30 秒
+  expire: 30000

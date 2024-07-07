@@ -29,6 +29,8 @@
         <dynamic.datasource.version>4.2.0</dynamic.datasource.version>
         <spring-boot.version>3.2.6</spring-boot.version>
         <lombok.version>1.18.32</lombok.version>
+        <redisson.version>3.31.0</redisson.version>
+        <lock4j.version>2.2.7</lock4j.version>
     </properties>
 
     <developers>
@@ -95,7 +97,19 @@
                 <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
                 <version>${dynamic.datasource.version}</version>
             </dependency>
+            <!-- Redisson -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
 
+            <!-- Lock4j -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
+                <version>${lock4j.version}</version>
+            </dependency>
             <!-- 工程模块依赖 -->
             <dependency>
                 <groupId>dev.stackbug</groupId>
