@@ -1,6 +1,7 @@
 package dev.stackbug.config;
 
 import cn.hutool.core.util.BooleanUtil;
+import dev.stackbug.utils.SpringUtils;
 import io.undertow.server.DefaultByteBufferPool;
 import io.undertow.websockets.jsr.WebSocketDeploymentInfo;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -27,7 +28,7 @@ public class UndertowConfig implements WebServerFactoryCustomizer<UndertowServle
             webSocketDeploymentInfo.setBuffers(new DefaultByteBufferPool(false, 512));
             deploymentInfo.addServletContextAttribute("io.undertow.websockets.jsr.WebSocketDeploymentInfo", webSocketDeploymentInfo);
             // 使用虚拟线程基于hutool判断
-            if (BooleanUtil.toBoolean(System.getProperty("useVirtualThreads", "false"))) {
+            if (SpringUtils.isVirtual()) {
                 VirtualThreadTaskExecutor executor = new VirtualThreadTaskExecutor("undertow-");
                 deploymentInfo.setExecutor(executor);
                 deploymentInfo.setAsyncExecutor(executor);
