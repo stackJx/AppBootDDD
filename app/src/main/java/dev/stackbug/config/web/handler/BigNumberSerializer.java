@@ -1,4 +1,4 @@
-package dev.stackbug.handler;
+package dev.stackbug.config.web.handler;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
