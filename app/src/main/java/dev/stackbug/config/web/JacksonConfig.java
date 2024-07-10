@@ -1,4 +1,4 @@
-package dev.stackbug.config;
+package dev.stackbug.config.web;
 
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;

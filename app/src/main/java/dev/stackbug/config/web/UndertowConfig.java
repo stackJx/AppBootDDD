@@ -1,4 +1,4 @@
-package dev.stackbug.config;
+package dev.stackbug.config.web;
 
 import cn.hutool.core.util.BooleanUtil;
 import dev.stackbug.utils.SpringUtils;
