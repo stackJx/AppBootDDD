@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 基础项目坐标 -->
     <groupId>dev.stackbug</groupId>
     <artifactId>big-market</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <!-- 子模块列表 -->
     <modules>
         <module>app</module>
         <module>domain</module>
@@ -15,13 +19,15 @@
         <module>types</module>
     </modules>
 
+    <!-- 全局属性配置 ============================================== -->
     <properties>
+        <!-- 基础构建配置 -->
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- 依赖版本号 -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- 依赖版本控制 -->
         <h2.version>2.1.214</h2.version>
         <mysql.version>8.0.22</mysql.version>
         <p6spy.version>3.9.1</p6spy.version>
@@ -33,6 +39,7 @@
         <lock4j.version>2.2.7</lock4j.version>
     </properties>
 
+    <!-- 开发者信息 -->
     <developers>
         <developer>
             <name>stackJx</name>
@@ -42,6 +49,7 @@
         </developer>
     </developers>
 
+    <!-- 项目许可证 -->
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -49,10 +57,10 @@
         </license>
     </licenses>
 
+    <!-- 依赖管理 ================================================= -->
     <dependencyManagement>
         <dependencies>
-
-            <!-- SpringBoot的依赖配置-->
+            <!-- Spring Boot BOM -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -60,57 +68,55 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- H2 Database，用于内存数据库 -->
+
+            <!-- 数据库相关 -->
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
                 <scope>runtime</scope>
             </dependency>
-
-            <!-- MySQL Connector，用于连接 MySQL 数据库 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-            <!-- hutool 的依赖配置-->
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-            <!-- p6spy，用于 SQL 性能分析 -->
             <dependency>
                 <groupId>p6spy</groupId>
                 <artifactId>p6spy</artifactId>
                 <version>${p6spy.version}</version>
+            </dependency>
+
+            <!-- 工具类库 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-            <!-- 动态数据源 -->
+
+            <!-- 分布式相关 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>dynamic-datasource-spring-boot3-starter</artifactId>
                 <version>${dynamic.datasource.version}</version>
             </dependency>
-            <!-- Redisson -->
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
-
-            <!-- Lock4j -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
                 <version>${lock4j.version}</version>
             </dependency>
-            <!-- 工程模块依赖 -->
+
+            <!-- 内部模块统一版本管理 -->
             <dependency>
                 <groupId>dev.stackbug</groupId>
                 <artifactId>domain</artifactId>
@@ -134,59 +140,92 @@
         </dependencies>
     </dependencyManagement>
 
+    <!-- 构建配置 ================================================= -->
     <build>
         <plugins>
+            <!-- 编译器插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.11.0</version> <!-- 推荐升级到新版本 -->
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                    <compilerArgs>
+                        <arg>-parameters</arg> <!-- 保留方法参数名 -->
+                    </compilerArgs>
                 </configuration>
             </plugin>
+
+            <!-- 资源文件处理 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.3.1</version> <!-- 推荐升级到新版本 -->
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+
+            <!-- 版本管理插件 -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.7</version>
+                <version>2.16.0</version> <!-- 推荐升级到新版本 -->
             </plugin>
         </plugins>
     </build>
 
+    <!-- 环境配置 ================================================= -->
     <profiles>
+        <!-- 开发环境（默认激活） -->
         <profile>
             <id>dev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <java_jvm>-Xms1G -Xmx1G -server  -XX:MaxPermSize=256M -Xss256K -Dspring.profiles.active=test -XX:+DisableExplicitGC -XX:+UseG1GC  -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/big-market-boot -Xloggc:/export/Logs/big-market-boot/gc-big-market-boot.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps</java_jvm>
+                <java_jvm>
+                    -Xms1G -Xmx1G -server
+                    -Dspring.profiles.active=test
+                    -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+                    -XX:+HeapDumpOnOutOfMemoryError
+                    -XX:HeapDumpPath=./heapdump.hprof
+                </java_jvm>
                 <profileActive>dev</profileActive>
             </properties>
         </profile>
+
+        <!-- 测试环境 -->
         <profile>
             <id>test</id>
             <properties>
-                <java_jvm>-Xms1G -Xmx1G -server  -XX:MaxPermSize=256M -Xss256K -Dspring.profiles.active=test -XX:+DisableExplicitGC -XX:+UseG1GC  -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/big-market-boot -Xloggc:/export/Logs/big-market-boot/gc-big-market-boot.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps</java_jvm>
+                <java_jvm>
+                    -Xms2G -Xmx2G -server
+                    -Dspring.profiles.active=test
+                    -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+                    -XX:+HeapDumpOnOutOfMemoryError
+                    -XX:HeapDumpPath=./heapdump.hprof
+                </java_jvm>
                 <profileActive>test</profileActive>
             </properties>
         </profile>
+
+        <!-- 生产环境 -->
         <profile>
             <id>prod</id>
             <properties>
-                <java_jvm>-Xms6G -Xmx6G -server  -XX:MaxPermSize=256M -Xss256K -Dspring.profiles.active=release -XX:+DisableExplicitGC -XX:+UseG1GC  -XX:LargePageSizeInBytes=128m -XX:+UseFastAccessorMethods -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Logs/fq-mall-activity-app -Xloggc:/export/Logs/big-market-boot/gc-big-market-boot.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps</java_jvm>
+                <java_jvm>
+                    -Xms6G -Xmx6G -server
+                    -Dspring.profiles.active=release
+                    -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+                    -XX:ParallelGCThreads=4
+                    -XX:+HeapDumpOnOutOfMemoryError
+                    -XX:HeapDumpPath=/export/Logs/big-market-boot
+                </java_jvm>
                 <profileActive>prod</profileActive>
             </properties>
         </profile>
     </profiles>
-
 </project>
