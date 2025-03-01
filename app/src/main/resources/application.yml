@@ -1,6 +1,6 @@
 spring:
   config:
-    name: big-market-app
+    name: app-boot-app
   profiles:
     active: dev
   jackson:
