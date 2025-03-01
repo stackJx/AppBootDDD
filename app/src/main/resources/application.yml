@@ -2,7 +2,7 @@ spring:
   config:
     name: app-boot-app
   profiles:
-    active: dev
+    active: @profiles.active@
   jackson:
     # 日期格式化
     date-format: yyyy-MM-dd HH:mm:ss

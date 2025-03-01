@@ -186,6 +186,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
+                <profiles.active>dev</profiles.active>
                 <java_jvm>
                     -Xms1G -Xmx1G -server
                     -Dspring.profiles.active=test
@@ -201,6 +202,7 @@
         <profile>
             <id>test</id>
             <properties>
+                <profiles.active>test</profiles.active>
                 <java_jvm>
                     -Xms2G -Xmx2G -server
                     -Dspring.profiles.active=test
@@ -216,6 +218,7 @@
         <profile>
             <id>prod</id>
             <properties>
+                <profiles.active>prod</profiles.active>
                 <java_jvm>
                     -Xms6G -Xmx6G -server
                     -Dspring.profiles.active=release
