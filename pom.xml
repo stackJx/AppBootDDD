@@ -6,7 +6,7 @@
 
     <!-- 基础项目坐标 -->
     <groupId>dev.stackbug</groupId>
-    <artifactId>big-market</artifactId>
+    <artifactId>app-ddd</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -45,7 +45,7 @@
             <name>stackJx</name>
             <email>root@stackbug.dev</email>
             <organization>stackJx</organization>
-            <organizationUrl>https://github.com/fuzhengwei</organizationUrl>
+            <organizationUrl>https://github.com/stackJx</organizationUrl>
         </developer>
     </developers>
 
@@ -225,7 +225,7 @@
                     -XX:+UseG1GC -XX:MaxGCPauseMillis=200
                     -XX:ParallelGCThreads=4
                     -XX:+HeapDumpOnOutOfMemoryError
-                    -XX:HeapDumpPath=/export/Logs/big-market-boot
+                    -XX:HeapDumpPath=/export/Logs/app-ddd-boot
                 </java_jvm>
                 <profileActive>prod</profileActive>
             </properties>
